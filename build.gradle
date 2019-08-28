@@ -1,0 +1,30 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+sourceCompatibility = 8
+targetCompatibility = 8
+
+group = "com.pyskaczu.hellocucumber"
+version = "1.0"
+
+// Versioning of dependencies
+wrapper.gradleVersion = '5.5.1'
+def cucumberVersion = '4.7.1'
+def junitVersion = '5.5.0'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile "io.cucumber:cucumber-java:${cucumberVersion}"
+    compile "io.cucumber:cucumber-junit:${cucumberVersion}"
+
+    compile "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    runtime "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    runtime "org.junit.vintage:junit-vintage-engine:${junitVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
