@@ -3,6 +3,13 @@ package com.pyskaczu.hellocucumber;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.client.ClientHttpRequest;
+import org.springframework.web.client.RestTemplate;
+
+import java.io.IOException;
+import java.net.URI;
+
 import static org.junit.Assert.*;
 
 public class StepsDefinitions {
@@ -22,6 +29,14 @@ public class StepsDefinitions {
 	@Then("^I should be told \"([^\"]*)\"$")
 	public void i_should_be_told(String expectedAnswer) {
 		assertEquals(expectedAnswer, actualAnswer);
+	}
+
+	@When("^GET HTTP to \"([^\"]*)\" is called$")
+	public void get_http_to_is_called(String url) {
+		RestTemplate rt = new RestTemplate();
+		String response = rt.getForObject(URI.create("http://" + url), String.class);
+
+		System.out.println(response);
 	}
 
 	static class IsItFriday {

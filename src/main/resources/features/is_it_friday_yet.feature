@@ -10,3 +10,6 @@ Feature: Is it Friday yet?
     Given today is "Friday"
     When I ask whether it's Friday yet
     Then I should be told "Yes"
+
+  Scenario: GET www.google.com
+    When GET HTTP to "www.google.com" is called

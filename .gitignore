@@ -1,6 +1,6 @@
-target/
 out/
 build/
 .idea/
 .gradle/
-workstation-shutter.iml
+gradle*
+src/main/main.iml
