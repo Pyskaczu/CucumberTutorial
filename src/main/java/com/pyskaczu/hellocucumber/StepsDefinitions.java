@@ -3,11 +3,8 @@ package com.pyskaczu.hellocucumber;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
 import java.net.URI;
 
 import static org.junit.Assert.*;
@@ -38,6 +35,7 @@ public class StepsDefinitions {
 
 		System.out.println(response);
 	}
+
 
 	static class IsItFriday {
 		static String isItFriday(String today) {
